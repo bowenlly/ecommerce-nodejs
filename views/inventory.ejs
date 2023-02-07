@@ -1,0 +1,77 @@
+<% include _header %> 
+
+
+  <!--Main layout-->
+  <main>
+    <div class="container">
+    <div class="row">
+          <!-- Sidebar -->
+    <aside id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white col-lg-3">
+      <div class="position-fixed">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a href="/admin" class="list-group-item list-group-item-action py-2 ripple" aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+          </a>
+
+          <a href="/admin/products" class="list-group-item list-group-item-action py-2 ripple active"><i
+              class="fas fa-lock fa-fw me-3"></i><span>Inventory</span></a>
+          
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-area fa-fw me-3"></i><span>Sales</span>
+          </a>
+          
+          <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-pencil fa-fw me-3"></i><span>Orders</span></a>
+        </div>
+      </div>
+    </aside>
+    <!-- Sidebar -->
+      <div class="col-lg-9">
+      <article class="card">
+         <div class="card-body">
+            <a
+               role="button"
+               href="./"
+               class="btn btn-link btn-rounded btn-sm fw-bold mb-3"
+               data-mdb-ripple-color="dark"
+              >
+               <i class="fas fa-angle-left"></i>
+              Back
+            </a>
+           <div class="row">
+            <form action="/admin/products/<%= products[0].product_id %>" method="post">
+                  <div class="col-lg-8">
+                     <div class="row gx-3">
+                        <div class="col-6 mb-3"> <label class="form-label">Product ID</label> <input name="product_id" class="form-control" type="text" value="<%= products[0].product_id %>" readonly="readonly" spellcheck="false" data-ms-editor="true"> </div>
+                        <!-- col .// --> 
+                        <div class="col-6 mb-3"> <label class="form-label">Name</label> <input name="name" class="form-control" type="text" value="<%= products[0].name %>" spellcheck="false" data-ms-editor="true" required> </div>
+                        <!-- col .// --> 
+                       
+                        <div class="col-lg-6 col-md-6 mb-3"> <label class="form-label">Price</label> <input type="number" name="price" min="0" step="0.01" value="<%= products[0].price %>" class="form-control" required> </div>
+
+                        <!-- col .// --> 
+                        <div class="col-lg-6 col-md-6 mb-3"> <label class="form-label">Inventory</label> <input type="number" name="inventory_amount" min="0" value="<%= products[0].inventory_amount %>" class="form-control" required> </div>
+                      
+
+                     </div>
+                     <!-- row.// --> 
+                  </div>
+                  <!-- col.// --> 
+                 <br> <button class="btn btn-primary" type="submit">Save changes</button> 
+            </form>
+           </div>
+            
+
+         </div>
+         <!-- card-body .// --> 
+      </article>
+      <!-- card .// --> 
+   </div>
+  
+    </div>
+    </div>
+    </div>
+  </main>
+  <!--Main layout-->
+
+ <% include _footer %>
